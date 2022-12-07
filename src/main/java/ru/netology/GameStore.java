@@ -31,14 +31,16 @@ public class GameStore {
      * если игра есть и false иначе
      */
     public boolean containsGame(Game game) {
-        boolean answer = false;
+        boolean answer =false;
         for (int i = 0; i < games.size(); i++) {
             if (games.get(i).equals(game)) {
-                answer = true;
+                answer =true;
             }
         }
         return answer;
     }
+
+
 
 
     /**
@@ -48,7 +50,7 @@ public class GameStore {
      */
     public void addPlayTime(String playerName, int hours) {
         if (playedTime.containsKey(playerName)) {
-            playedTime.put(playerName, playedTime.get(playerName) + hours);
+            playedTime.put(playerName, playedTime.get(playerName)+hours);
         } else {
             playedTime.put(playerName, hours);
         }
@@ -77,7 +79,7 @@ public class GameStore {
      */
     public int getSumPlayedTime() {
         int sum = 0;
-        for (String playerName : playedTime.keySet()) {
+        for(String playerName: playedTime.keySet()) {
             sum += playedTime.get(playerName);
         }
         return sum;
