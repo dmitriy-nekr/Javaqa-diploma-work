@@ -41,7 +41,7 @@ public class Player {
         if (playedTime.containsKey(game)) {
             playedTime.put(game, playedTime.get(game) + hours);
         } else {
-            throw new RuntimeException("Игра" + game + "не зарегестрирована");
+            throw new RuntimeException("Игра" + game + "не зарегистрирована");
         }
 
         return playedTime.get(game);
