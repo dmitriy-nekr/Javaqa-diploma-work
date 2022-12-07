@@ -33,11 +33,12 @@ public class GameStoreTest {
     public void shouldAddPlayerWithPlayTime1() {
         GameStore store = new GameStore();
         store.addPlayTime("Ivan", 1);
-       store.addPlayTime("Kolya", 0);
+        store.addPlayTime("Kolya", 0);
         String expected = "Ivan";
         String actual = store.getMostPlayer();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldAddPlayerWithPlayTime2() {
         GameStore store = new GameStore();
@@ -48,6 +49,7 @@ public class GameStoreTest {
         String actual = store.getMostPlayer();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldAddPlayerWithPlayTime0() {
         GameStore store = new GameStore();
@@ -70,6 +72,7 @@ public class GameStoreTest {
         int actual = store.getSumPlayedTime();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldSumWithPlayTime0() {
         GameStore store = new GameStore();
