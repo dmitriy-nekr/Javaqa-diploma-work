@@ -22,7 +22,7 @@ public class GameStoreTest {
 
         GameStore store = new GameStore();
         Game game1 = store.publishGame("Нетология Баттл Онлайн", "Аркады");
-        Game game =new Game("Игра 1", "Аркады",store);
+        Game game = new Game("Игра 1", "Аркады", store);
         assertFalse(store.containsGame(game));
     }
 
@@ -35,6 +35,7 @@ public class GameStoreTest {
         String actual = store.getMostPlayer();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldAddPlayerWithPlayTime2() {
         GameStore store = new GameStore();
@@ -45,6 +46,7 @@ public class GameStoreTest {
         String actual = store.getMostPlayer();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldAddPlayerWithPlayTime0() {
         GameStore store = new GameStore();
@@ -67,6 +69,7 @@ public class GameStoreTest {
         int actual = store.getSumPlayedTime();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldSumWithPlayTime0() {
         GameStore store = new GameStore();
