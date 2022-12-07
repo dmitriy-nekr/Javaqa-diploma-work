@@ -6,11 +6,13 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class PlayerTest {
+
     GameStore store = new GameStore();
     Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
     Game game1= store.publishGame("Варкрафт", "Аркады");
     Game game2= store.publishGame("Стрелялка", "Шутеры");
     Player player = new Player("Petya");
+
 
     @Test
     public void shouldSumGenreIfOneGame() {
@@ -27,6 +29,7 @@ public class PlayerTest {
 
         player.installGame(game);
         player.installGame(game1);
+
 
 
         player.play(game, 3);
@@ -87,4 +90,5 @@ public class PlayerTest {
 
 }
 // другие ваши тесты
+
 
