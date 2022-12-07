@@ -33,7 +33,6 @@ public class PlayerTest {
         player.play(game, 3);
 
 
-
         int expected = 3;
         int actual = player.sumGenre("Аркады");
         Assertions.assertEquals(expected, actual);
@@ -102,7 +101,6 @@ public class PlayerTest {
         Game actual = player.mostPlayerByGenre("Шутеры");
         Assertions.assertEquals(expected, actual);
     }
-
 
 
 }
