@@ -28,11 +28,14 @@ public class PlayerTest {
     @Test
     public void shouldSumGenreIfOneGame() {
 
+
         player.installGame(game);
         player.play(game, 3);
 
+
+
         int expected = 3;
-        int actual = player.sumGenre(game.getGenre());
+        int actual = player.sumGenre("Аркады");
         Assertions.assertEquals(expected, actual);
     }
 
@@ -101,7 +104,9 @@ public class PlayerTest {
     }
 
 
+
 }
 // другие ваши тесты
+
 
 

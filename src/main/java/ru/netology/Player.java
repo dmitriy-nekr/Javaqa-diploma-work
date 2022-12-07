@@ -60,8 +60,7 @@ public class Player {
         for (Game game : playedTime.keySet()) {
             if (game.getGenre().equals(genre)) {
                 sum += playedTime.get(game);
-                //  } else {
-                //        sum = 0;
+
             }
         }
         return sum;
@@ -72,11 +71,11 @@ public class Player {
      * Если в игры этого жанра не играли, возвращается null
      */
     public Game mostPlayerByGenre(String genre) {
-        int sum = 1;
+        int sum = 0;
         Game mostTimeGame = null;
         for (Game game : playedTime.keySet()) {
             int gameTime = playedTime.get(game);
-            if ((genre.equals(game.getGenre())) && gameTime >= sum) {
+            if ((genre.equals(game.getGenre())) && gameTime > sum) {
                 sum = gameTime;
                 mostTimeGame = game;
             }
