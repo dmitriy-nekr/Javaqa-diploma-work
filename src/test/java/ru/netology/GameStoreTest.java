@@ -22,12 +22,13 @@ public class GameStoreTest {
 
 
     @Test
-    public void shouldAddExistGame() {
+    public void shouldVerifyNotAddGame() {
 
         GameStore store = new GameStore();
         Game game1 = store.publishGame("Нетология Баттл Онлайн", "Аркады");
-        Game game2 = store.publishGame("Нетология Баттл Онлайн", "Аркады");
-        assertTrue(store.containsGame(game2));
+        Game game = new Game("Игра 1", "Аркады", store);
+        assertFalse(store.containsGame(game));
+
     }
 
     @Test
@@ -61,6 +62,7 @@ public class GameStoreTest {
         String actual = store.getMostPlayer();
         Assertions.assertEquals(expected, actual);
     }
+
 
 
     @Test
