@@ -9,9 +9,20 @@ public class PlayerTest {
 
     GameStore store = new GameStore();
     Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
-    Game game1= store.publishGame("Варкрафт", "Аркады");
+    Game game1 = store.publishGame("Варкрафт", "Аркады");
     Game game2= store.publishGame("Стрелялка", "Шутеры");
     Player player = new Player("Petya");
+
+    @Test
+    public void shouldNotInstallTwice(){
+        player.installGame(game);
+        player.play(game, 3);
+        player.installGame(game);
+        int expected = 7;
+        int actual = player.play(game,4);
+        Assertions.assertEquals(expected, actual);
+
+    }
 
 
     @Test
@@ -67,10 +78,10 @@ public class PlayerTest {
     public void shouldGetMostPlayedGame(){
         player.installGame(game);
         player.installGame(game1);
-        player.play(game, 3);
-        player.play(game1, 6);
+        player.play(game, 6);
+        player.play(game1, 3);
 
-        Game expected=game1;
+        Game expected=game;
         Game actual = player.mostPlayerByGenre("Аркады");
         Assertions.assertEquals(expected,actual);
     }
