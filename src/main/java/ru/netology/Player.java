@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Player {
     private String name;
-
+    private int hours;
     /**
      * информация о том, в какую игру сколько часов было сыграно
      * ключ - игра
@@ -26,7 +26,9 @@ public class Player {
      * если игра уже была, никаких изменений происходить не должно
      */
     public void installGame(Game game) {
-        playedTime.put(game, 0);
+        if (!playedTime.containsKey(game)) {
+            playedTime.put(game, hours);
+        }
     }
 
     /**
@@ -41,7 +43,7 @@ public class Player {
         if (playedTime.containsKey(game)) {
             playedTime.put(game, playedTime.get(game) + hours);
         } else {
-            throw new RuntimeException("Игра" + game + "не зарегестрирована");
+            throw new RuntimeException("Игра" + game.getTitle() + "не зарегестрирована");
         }
 
         return playedTime.get(game);
@@ -56,8 +58,8 @@ public class Player {
         for (Game game : playedTime.keySet()) {
             if (game.getGenre().equals(genre)) {
                 sum += playedTime.get(game);
-            } else {
-                sum = 0;
+          //  } else {
+        //        sum = 0;
             }
         }
         return sum;
@@ -68,14 +70,15 @@ public class Player {
      * Если в игры этого жанра не играли, возвращается null
      */
     public Game mostPlayerByGenre(String genre) {
-        int sum = 0;
+        int sum = 1;
         Game mostTimeGame = null;
         for (Game game : playedTime.keySet()) {
-            if (genre.equals(game.getGenre())) {
-                sum += playedTime.get(game);
+            int gameTime = playedTime.get(game);
+            if ((genre.equals(game.getGenre())) && gameTime >= sum) {
+                sum = gameTime;
                 mostTimeGame = game;
             } else {
-                mostTimeGame = null;
+                return null;
             }
         }
         return mostTimeGame;
