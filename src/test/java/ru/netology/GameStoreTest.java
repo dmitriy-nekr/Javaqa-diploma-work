@@ -20,6 +20,7 @@ public class GameStoreTest {
         assertTrue(store.containsGame(game));
     }
 
+
     @Test
     public void shouldVerifyNotAddGame() {
 
@@ -27,6 +28,7 @@ public class GameStoreTest {
         Game game1 = store.publishGame("Нетология Баттл Онлайн", "Аркады");
         Game game = new Game("Игра 1", "Аркады", store);
         assertFalse(store.containsGame(game));
+
     }
 
     @Test
@@ -62,6 +64,7 @@ public class GameStoreTest {
     }
 
 
+
     @Test
     public void shouldSumPlayedTime() {
         GameStore store = new GameStore();
@@ -86,3 +89,4 @@ public class GameStoreTest {
 
     // другие ваши тесты
 }
+
